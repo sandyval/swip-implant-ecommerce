@@ -112,7 +112,7 @@ export async function generateMetadata({
 export default async function ProductDetailPage({ params, searchParams }: PageProps<'/product/[id]'>) {
     const { id: encodedId } = await params;
     const searchParamsResolved = await searchParams;
-    const id = decodeURIComponent(encodedId);    
+    const id = decodeURIComponent(encodedId);
     const customerId = await getAuthUserCustomerId();
     const result = await getProductData(id, customerId);
     const product = await fetchProductMaterials(result);
@@ -127,22 +127,43 @@ export default async function ProductDetailPage({ params, searchParams }: PagePr
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                     {/* Left Column: Image Carousel */}
                     <div className="lg:sticky lg:top-20 lg:self-start">
-                        <ProductImageCarousel images={product.featured_image ? [product.featured_image] : []} />
+                        <ProductImageCarousel images={
+                            product.pictures?.length
+                                ? product.pictures.map(p => p.url)
+                                : product.featured_image
+                                    ? [product.featured_image]
+                                    : []
+                        } />
                     </div>
 
                     {/* Right Column: Product Info */}
                     <div>
-                        <h1 className="text-2xl font-bold mb-4">{product.name}</h1>
-                        {product.description && (
-                            <p className="text-muted-foreground mb-6">{product.description}</p>
-                        )}
+                        <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
+
                         <ProductInfo product={product} searchParams={searchParamsResolved} />
                     </div>
                 </div>
             </div>
+            <section className='py-16 mt-12 px-8'>
+                <div className='container mx-auto rounded-2xl px-8 bg-red-100 p-8 '>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 items-center'>
+                        <div className='p-6'>
+                            <p className='text-2xl font-bold mb-4'>⚠️ AVISO IMPORTANTE DE AUTENTICIDAD</p>
+                            <p className='text-xl font-medium mb-4'>Hemos detectado sitios web falsos y cuentas no autorizadas que intentan clonar nuestra plataforma y vender réplicas de los productos de Implant Labs.</p>
+                            <p className='text-xl font-normal mb-4'>Las falsificaciones no cuentan con los estándares de calidad laboratoriales y pueden poner en grave riesgo la salud de tu ganado y grandes especies.</p>
+                            <p className='text-xl font-normal mb-4'><strong>Sitio Web Oficial Único:</strong> https://www.implantlabs-alfa.com/</p>
+                            <p className='text-xl font-normal mb-4'><strong>Garantía:</strong> No nos hacemos responsables por productos adquiridos fuera de esta plataforma o a través de distribuidores no verificados.</p>
+                            <p className='text-xl font-normal'>Asegura tu inversión y el rendimiento de tus animales comprando exclusivamente aquí de manera 100% segura.</p>
+                        </div>
+                        <div className='p-6 rounded-xl'>
+                            <img className='rounded-xl' src={"https://mmcb.b-cdn.net/media/attachments/a/a/c/5/b8bd5e49fc842b41c8ef91fb27e4cc9d83e2df3ba7edfcca8de68e658254/cuidado-productos-falsos.png"} />
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* Product Benefits Section */}
-            <section className="py-16 bg-muted/30 mt-12">
+            <section className="py-16 bg-muted/30 mt-12 hidden">
                 <div className="container mx-auto px-4">
                     <h2 className="text-2xl font-bold text-center mb-8">Por qué elegirnos</h2>
                     <div className="grid md:grid-cols-3 gap-8 text-center">
@@ -178,7 +199,7 @@ export default async function ProductDetailPage({ params, searchParams }: PagePr
             </section>
 
             {/* Store FAQ Section */}
-            <section className="py-16 bg-muted/30">
+            <section className="py-16 bg-muted/30 hidden">
                 <div className="container mx-auto px-4 max-w-3xl">
                     <h2 className="text-2xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
                     <Accordion type="single" collapsible className="w-full">

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@source inline("max-w-6xl w-7xl max-w-5xl bg-black bg-red-100 bg-yellow-400 max-w-7xl max-w-4xl max-w-screen-xl -bottom-8 -left-8 w-28 h-28  bg-accent opacity-20 opacity-30 w-40 h-40  -top-10 -right-10 bg-slate-100 ");
 
 @custom-variant dark (&:is(.dark *));
 

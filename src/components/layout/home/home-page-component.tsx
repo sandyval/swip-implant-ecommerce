@@ -5,7 +5,11 @@ import { getHomeBlockType } from "./home-section-types";
 
 const HOME_PARENT_SLUG = "ecommerce-home";
 
-export async function HomePageComponent() {
+interface HomePageComponentProps {
+    customerId?: string;
+}
+
+export async function HomePageComponent({ customerId }: HomePageComponentProps) {
     "use cache";
     cacheLife("hours");
 
@@ -21,7 +25,7 @@ export async function HomePageComponent() {
     return (
         <div className="min-h-screen mt-[60px]">
             {blocks.map((post) => (
-                <HomeSectionRenderer key={post.slug} post={post} />
+                <HomeSectionRenderer key={post.slug} post={post} customerId={customerId} />
             ))}
         </div>
     );
