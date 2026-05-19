@@ -4,7 +4,7 @@ import { addToCart, getGroupVariant, testApiMiddleWare } from '@/app/product/[id
 import { Price } from '@/components/commerce/price';
 import { Button } from '@/components/ui/button';
 import { InterfaceInventoryItem, Material, ProductKind, ProductVariant, VariantOption } from '@/lib/swipall/types/types';
-import { CheckCircle2, ShoppingCart } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, ShoppingCart } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState, useTransition } from 'react';
 import { toast } from 'sonner';
@@ -241,12 +241,35 @@ export function ProductInfo({ product, searchParams }: ProductInfoProps) {
 
     return (
         <div className="space-y-6">
+            {product.kind === ProductKind.Group ? (
+                selectedVariant?.sku && (
+                    <div className="text-xs text-muted-foreground">
+                        SKU: {selectedVariant.sku}
+                    </div>
+                )
+            ) : (
+                product.sku && (
+                    <div className="text-xs text-muted-foreground">
+                        SKU: {product.sku}
+                    </div>
+                )
+            )}
             <div>
-                <p className="text-2xl font-bold mt-2">
+                <p className="text-2xl font-bold mt-2 hidden">
                     <Price value={itemPrice} />
                 </p>
             </div>
-
+            {/* valiadate autenticity of the product */}
+            <div id="validate-autenticity">
+                    <a
+                        type='button'
+                        className="w-full bg-primary p-4 rounded-xl text-white font-bold flex items-center justify-center"
+                        href='/page/validar-autenticidad'
+                    >
+                      <ShieldCheck size={18} className="mr-2"/>
+                        Validar autenticidad de mi producto
+                    </a>
+            </div>
             <div className="prose prose-sm max-w-none">
                 <div dangerouslySetInnerHTML={{ __html: product.description || '' }} />
             </div>
@@ -269,7 +292,7 @@ export function ProductInfo({ product, searchParams }: ProductInfoProps) {
                 />
             )}
 
-            <div className="text-sm">
+            <div className="text-sm hidden">
                 {isInStock ? (
                     <span className="text-green-600 font-medium">
                         {availableQuantity} en existencia
@@ -279,7 +302,7 @@ export function ProductInfo({ product, searchParams }: ProductInfoProps) {
                 )}
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 hidden">
                 <Button
                     size="lg"
                     className="w-full"
@@ -299,36 +322,9 @@ export function ProductInfo({ product, searchParams }: ProductInfoProps) {
                     )}
                 </Button>
             </div>
-            {/* TODO: Remove this after testing */}
-            <div id="TEST_BUTTON">
-                    <Button
-                        size="lg"
-                        className="w-full"
-                        onClick={() => {
-                            testApiMiddleWare().then((res) => {
-                                console.log('TEST BUTTON - API Permissions', res);
-                            }).catch((error) => {
-                                console.error('TEST BUTTON - API Permissions Error', error);
-                            });
-                        }}
-                    >
-                        TEST BUTTON - API Permissions
-                    </Button>
-            </div>
+            
 
-            {product.kind === ProductKind.Group ? (
-                selectedVariant?.sku && (
-                    <div className="text-xs text-muted-foreground">
-                        SKU: {selectedVariant.sku}
-                    </div>
-                )
-            ) : (
-                product.sku && (
-                    <div className="text-xs text-muted-foreground">
-                        SKU: {product.sku}
-                    </div>
-                )
-            )}
+            
         </div>
     );
 }

@@ -12,9 +12,10 @@ import { HomeBannerSliderSectionWrapper } from "./sections/home-banner-slider";
 
 interface HomeSectionRendererProps {
     post: CmsPost;
+    customerId?: string;
 }
 
-const SECTION_RENDERERS: Record<HomeBlockType, (props: { post: CmsPost; items?: CmsPost[] }) => JSX.Element | Promise<JSX.Element | null>> = {
+const SECTION_RENDERERS: Record<HomeBlockType, (props: { post: CmsPost; items?: CmsPost[]; customerId?: string }) => JSX.Element | Promise<JSX.Element | null>> = {
     "home-banner": HomeBannerSection as any,
     "home-banner-slider": HomeBannerSliderSectionWrapper,
     "home-categories": HomeCategoriesSection as any,
@@ -23,7 +24,7 @@ const SECTION_RENDERERS: Record<HomeBlockType, (props: { post: CmsPost; items?: 
 };
 
 
-export async function HomeSectionRenderer({ post }: HomeSectionRendererProps) {
+export async function HomeSectionRenderer({ post, customerId }: HomeSectionRendererProps) {
     "use cache";
     cacheLife("hours");
     const type = getHomeBlockType(post);
@@ -32,5 +33,5 @@ export async function HomeSectionRenderer({ post }: HomeSectionRendererProps) {
     }
 
     const Renderer = SECTION_RENDERERS[type];
-    return <Renderer post={post} />;
+    return <Renderer post={post} customerId={customerId} />;
 }

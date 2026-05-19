@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HomePageComponent } from "@/components/layout/home/home-page-component";
 import { SITE_NAME, SITE_URL, buildCanonicalUrl } from "@/lib/metadata";
+import { getAuthUserCustomerId } from "@/lib/auth";
 
 export const metadata: Metadata = {
     title: {
@@ -21,8 +22,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Home(_props: PageProps<'/'>) {
+    const customerId = await getAuthUserCustomerId();
     return (
-        <HomePageComponent />
+        <HomePageComponent customerId={customerId} />
     );
 }
 
