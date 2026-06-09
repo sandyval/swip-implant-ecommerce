@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validar Autenticidad — Implant Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-white overflow-x-hidden">
+
+    <!-- ════════════════════════════════════════
+         HERO — Video + Headline
+    ════════════════════════════════════════ -->
+    <section class="hero-bg relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
+
+        <!-- Floating particles -->
+        <div class="particle" style="left:10%;bottom:10%;animation-duration:4s;animation-delay:0s;"></div>
+        <div class="particle" style="left:20%;bottom:5%;animation-duration:5s;animation-delay:1s;"></div>
+        <div class="particle" style="left:35%;bottom:15%;animation-duration:6s;animation-delay:0.5s;"></div>
+        <div class="particle" style="left:55%;bottom:8%;animation-duration:4.5s;animation-delay:2s;"></div>
+        <div class="particle" style="left:70%;bottom:12%;animation-duration:5.5s;animation-delay:0.8s;"></div>
+        <div class="particle" style="left:85%;bottom:6%;animation-duration:3.5s;animation-delay:1.5s;"></div>
+
+        <!-- Badge -->
+        <div class="shield-animate flex flex-col items-center mb-6">
+            <div class="badge-glow w-20 h-20 rounded-full bg-green-500/10 border-2 border-green-500 flex items-center justify-center mb-3">
+                <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                </svg>
+            </div>
+            <span class="text-green-400 text-xs font-semibold tracking-widest uppercase">Sistema de Verificación Oficial</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl md:text-6xl font-black text-center leading-tight mb-4 reveal">
+            Valida la <span class="text-green-400">Autenticidad</span><br class="hidden md:block" />
+            de tu Producto
+        </h1>
+        <p class="text-gray-400 text-center text-lg md:text-xl max-w-2xl mb-10 reveal delay-100">
+            Tecnología de doble autenticación con <strong class="text-white">QR Holográfico</strong> — la única forma segura de confirmar que tu producto es 100% original.
+        </p>
+
+        <!-- Video container -->
+        <div class="relative w-full max-w-3xl rounded-2xl overflow-hidden shadow-2xl shadow-green-500/10 border border-white/10 reveal delay-200">
+            <div class="scanline"></div>
+            <video
+                class="w-full aspect-video object-cover"
+                src="https://mmcbv4.b-cdn.net/implant-labs/src/uv_validation.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+            ></video>
+            <!-- Green corner accents -->
+            <span class="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-green-400 rounded-tl"></span>
+            <span class="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-green-400 rounded-tr"></span>
+            <span class="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-green-400 rounded-bl"></span>
+            <span class="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-green-400 rounded-br"></span>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-500 text-xs animate-bounce">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/>
+            </svg>
+            Desliza
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         AVISO — Warning stripe
+    ════════════════════════════════════════ -->
+    <div class="warning-stripe h-3 w-full"></div>
+
+    <!-- ════════════════════════════════════════
+         INFO — Nuevo candado holográfico
+    ════════════════════════════════════════ -->
+    <section class="bg-gray-900 py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+
+            <!-- Original content block -->
+            <div class="container mb-4 reveal">
+                <div class="mb-4 text-gray-300 text-base md:text-lg leading-relaxed">
+                    Ahora mejoramos nuestro candado de seguridad <strong class="text-white">ÚNICO y EXCLUSIVO</strong>, el cual permitirá ser 100% efectivos en validar la Autenticidad de su producto y evitar adquiera un producto <b class="text-red-400">FALSO, PIRATA o CLON</b>
+                </div>
+                <p class="text-lg font-semibold text-green-400">
+                    <strong>¡Nuevo QR Holográfico con autenticación de dos pasos!</strong>
+                </p>
+            </div>
+
+            <!-- Stats row -->
+            <div class="grid grid-cols-3 gap-4 mt-10 mb-10 reveal delay-200">
+                <div class="bg-gray-800/60 border border-white/10 rounded-xl p-5 text-center">
+                    <div class="counter text-3xl font-black text-green-400 mb-1">100%</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wide">Verificación segura</div>
+                </div>
+                <div class="bg-gray-800/60 border border-white/10 rounded-xl p-5 text-center">
+                    <div class="counter text-3xl font-black text-green-400 mb-1">2FA</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wide">Doble autenticación</div>
+                </div>
+                <div class="bg-gray-800/60 border border-white/10 rounded-xl p-5 text-center">
+                    <div class="counter text-3xl font-black text-green-400 mb-1">24/7</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wide">Disponible siempre</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         HOLOGRAM + VALIDATOR
+    ════════════════════════════════════════ -->
+    <section class="bg-gray-950 py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+
+            <h2 class="text-3xl md:text-4xl font-black text-center mb-12 reveal">
+                Verifica tu producto <span class="text-green-400">ahora</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-6 full-width sm:w-1/2 md:w-full mx-auto">
+
+                <!-- Hologram image -->
+                <div class="relative reveal-left">
+                    <img
+                        class="w-full md:w-80 rounded-xl block mx-auto"
+                        alt="Holograma horizontal"
+                        src="https://mmcb.b-cdn.net/media/attachments/6/f/c/5/72dd96aa7419a82a7f2a99b6d2a079892bf5466121c9f5e9707a6a2a5b68/holograma-horizontal.jpeg"
+                    />
+                    <div class="shimmer-overlay"></div>
+                    <div class="mt-4 text-center">
+                        <span class="inline-flex items-center gap-2 text-sm text-green-400 font-medium">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                            Holograma de seguridad oficial
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Validator iframe -->
+                <div class="w-full border border-slate-700 bg-gray-900 p-6 rounded-xl mt-4 mb-4 md:max-w-md m-auto reveal-right">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                        <span class="text-sm text-gray-400 font-medium">Sistema activo — Ingresa tu código QR</span>
+                    </div>
+                    <div class="flex justify-center">
+                        <iframe
+                            class="embed-responsive-item w-full"
+                            style="min-height:360px; border:0;"
+                            src="https://truster.divasy.io?project=6c54f55a-6422-4ecf-a2ed-9e9545869df7&lang=es&old=true"
+                            frameborder="0"
+                        ></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         ALERT — Falsificaciones
+    ════════════════════════════════════════ -->
+    <section class="bg-red-950/40 border-t border-red-800/40 py-14 px-4">
+        <div class="container mx-auto max-w-3xl text-center reveal">
+            <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                </svg>
+                Advertencia de seguridad
+            </div>
+            <h3 class="text-2xl md:text-3xl font-black mb-4 text-white">
+                ¡Cuidado con productos <span class="text-red-400">FALSOS</span>!
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+                Hemos detectado sitios web falsos y cuentas no autorizadas que intentan clonar nuestra plataforma y vender réplicas de los productos de Implant Labs. Las falsificaciones <strong class="text-white">no cuentan con los estándares de calidad laboratoriales</strong> y pueden poner en grave riesgo la salud de tu ganado.
+            </p>
+            <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 text-sm text-left space-y-2 reveal delay-200">
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
+                    </svg>
+                    <span class="text-gray-300"><strong class="text-white">Sitio Web Oficial:</strong> https://www.implantlabs-alfa.com/</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
+                    </svg>
+                    <span class="text-gray-300">Compra exclusivamente a través de canales verificados</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
+                    </svg>
+                    <span class="text-gray-300">No nos hacemos responsables por productos adquiridos fuera de esta plataforma</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════ -->
+    <footer class="bg-gray-950 border-t border-white/5 py-8 px-4 text-center text-gray-600 text-sm reveal">
+        <img src="https://mmcb.b-cdn.net/media/attachments/6/f/4/3/bcda60aa7acc40fcef96753cc34858982422a775dc82a69047d664825194/logo-implant.png"
+             alt="Implant Labs" class="h-8 mx-auto mb-4 opacity-60 invert" />
+        © 2014 Implant Labs. Todos los derechos reservados.
+    </footer>
+
+    <!-- ════════════════════════════════════════
+         JS — Intersection Observer (scroll reveal)
+    ════════════════════════════════════════ -->
+    <script>
+        const revealClasses = ['.reveal', '.reveal-left', '.reveal-right'];
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealClasses.forEach(selector => {
+            document.querySelectorAll(selector).forEach(el => observer.observe(el));
+        });
+
+        // Trigger elements already in viewport on load
+        document.querySelectorAll(revealClasses.join(',')).forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) el.classList.add('visible');
+        });
+    </script>
+
+</body>
+</html>
