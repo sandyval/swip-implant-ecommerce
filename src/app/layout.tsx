@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         template: `%s | ${SITE_NAME}`,
     },
     description:
-        "Shop the best products at Vendure Store. Quality products, competitive prices, and fast delivery.",
+        "Empresa farmacéutica dedica a la producción de hormonales sintéticos especializados para el desempeño de ganado de engorda.",
     openGraph: {
         type: "website",
         siteName: SITE_NAME,
